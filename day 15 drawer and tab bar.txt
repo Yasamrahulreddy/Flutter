@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+
+void main()
+{
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title:"Tab Bar",
+      home:DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text("TabBar"),
+            backgroundColor: Colors.black,
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.home),text: "Home",),
+                Tab(icon: Icon(Icons.settings),text: "Settings",),
+                Tab(icon: Icon(Icons.local_grocery_store),text: "Store",),
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: [
+              HomePage(),
+              SettingPage(),
+              StorePage(),
+
+            ],
+          ),
+        ),
+      )
+    );
+
+  }
+}
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        child: Text("Home",style: TextStyle(fontSize: 60),),
+      ),
+    );
+  }
+}
+class SettingPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        child: Text("Setting",style: TextStyle(fontSize: 60),),
+      ),
+    );
+  }
+}
+class StorePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        child: Text("Store",style: TextStyle(fontSize: 60),),
+      ),
+    );
+  }
+}
+
+
+

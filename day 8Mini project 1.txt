@@ -1,0 +1,128 @@
+
+import 'packagefluttercupertino.dart';
+import 'packagefluttermaterial.dart';
+
+void main(){
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBannerfalse ,
+      titleApp 2,
+      home Scaffold(
+        backgroundColor Colors.grey,
+        appBar AppBar (
+          titleText(Portfolio),
+          backgroundColor Colors.black,
+        ),
+        bodyCenter(
+          child Column(
+            children [
+              Center(
+                childContainer (
+                    margin EdgeInsets.only(top 40),
+                    height 100,
+                    width 100,
+                    decoration BoxDecoration(
+                      colorColors.lightBlueAccent,
+                      borderRadius BorderRadius.circular(100),
+                      border Border.all(colorColors.white,width 2)
+                    ),
+                    childCenter(child Text(s,style TextStyle(fontSize 80,color Colors.white),))
+                ),
+
+
+                ),
+                Container(
+                  margin EdgeInsets.all(30),
+                  alignment Alignment.center,
+                  decoration BoxDecoration(
+                    color Colors.lightBlueAccent,
+                    borderRadius BorderRadius.circular(120),
+
+
+                  ),
+                  child Padding(
+                    padding const EdgeInsets.only(left 20),
+                    child TextField(
+                      decorationInputDecoration(
+                        border InputBorder.none,
+                        hintText Rahul Reddy,
+                        icon Icon(Icons.person,colorColors.white),
+                      ),
+                ),
+                  ),
+              ),
+              Container(
+                margin EdgeInsets.only(left 30,right 30),
+                alignment Alignment.center,
+                decoration BoxDecoration(
+                  color Colors.lightBlueAccent,
+                  borderRadius BorderRadius.circular(20),
+
+
+                ),
+                child Padding(
+                  padding const EdgeInsets.only(left 20),
+                  child TextField(
+                    decorationInputDecoration(
+                      border InputBorder.none,
+                      hintText Password,
+                      icon Icon(Icons.lock,color Colors.white,),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                margin EdgeInsets.all(30),
+                alignment Alignment.center,
+                decoration BoxDecoration(
+                  color Colors.lightBlueAccent,
+                  borderRadius BorderRadius.circular(120),
+
+
+                ),
+                child Padding(
+                  padding const EdgeInsets.only(left 20),
+                  child TextField(
+                    decorationInputDecoration(
+                      border InputBorder.none,
+                      hintText Github,
+                      icon Icon(Icons.link,colorColors.white),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                margin EdgeInsets.only(left30,top 30,right 30),
+                height 50,
+                width 500,
+                alignment Alignment.center,
+                decoration BoxDecoration(
+                  color Colors.lightBlueAccent,
+                  borderRadius BorderRadius.circular(120),
+
+
+                ),
+                childCenter(
+                  childText(Update,style TextStyle(
+                    color Colors.white,
+                    fontSize 25,
+                    fontWeight FontWeight.w700,
+                    fontStyle FontStyle.italic,
+                  ),)
+                )
+                ),
+
+
+
+            ],
+          ),
+        )
+      ),
+    );
+  }
+}

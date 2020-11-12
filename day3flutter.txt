@@ -1,0 +1,56 @@
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title:"App 2",
+      home: Scaffold(
+        backgroundColor: Colors.grey,
+        appBar: AppBar (
+          title:Text("Container Widget"),
+          leading:Icon(Icons.home),
+          backgroundColor: Colors.black,
+        ),
+        body:Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize:MainAxisSize.max,
+
+          children:<Widget>[
+            Container(
+              height:100,
+              width:100,
+              margin:EdgeInsets.all(10),
+              color:Colors.orange,
+              child:Text("Codewarriors"),
+            ),
+            Container(
+              height:100,
+              width:100,
+              margin:EdgeInsets.all(10),
+              color:Colors.orange,
+              child:Text("Hey"),
+            ),
+          Container(
+              height:100,
+              width:100,
+              margin:EdgeInsets.all(10),
+              color:Colors.orange,
+              child:Text("Coders!!"),
+          ),
+
+
+
+          ]
+        )
+      ),
+    );
+  }
+}

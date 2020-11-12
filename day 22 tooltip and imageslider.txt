@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      //home: tooltip_widget(),
+      //home: slider(),
+        home: ImageSlider(),
+
+    );
+  }
+}
+class tooltip_widget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Tooltip"),
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        child: Tooltip(
+          waitDuration: Duration(seconds: 2),
+          showDuration: Duration(seconds: 3),
+          textStyle: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
+          ),
+          decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadiusDirectional.circular(20)
+          ),
+          message: "Set Alarm",
+          child: FlatButton(
+            child: Icon(
+              Icons.alarm,
+              size: 150,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class slider extends StatefulWidget {
+  @override
+  _sliderState createState() => _sliderState();
+}
+
+class _sliderState extends State<slider> {
+  int _value=6;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Slider"),
+      ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 20),
+            child: Icon(
+              Icons.volume_up,
+              size: 50,
+            ),
+          ),
+          Expanded(
+            child: Slider(
+              value: _value.toDouble(),
+              max:20,
+              min:1,
+              activeColor: Colors.green,
+              inactiveColor: Colors.red,
+              label: "Set up Volume",
+              onChanged: (double newvalue){
+                setState(() {
+                  _value=newvalue.round();
+                });
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class ImageSlider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(40),
+      child:imageslider(context) ,
+      constraints: BoxConstraints.expand(
+        height: 200
+      ),
+    );
+  }
+}
+
+Swiper imageslider(BuildContext context) {
+  return  new Swiper(
+    autoplay :true,
+    itemCount: 20,
+    itemBuilder:(BuildContext context , int index){
+      return Image.network(
+        "https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg",
+      );
+    }
+  );
+
+}
+
+
+
+
+

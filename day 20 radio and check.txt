@@ -1,0 +1,123 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+enum Gender{Male,Female,Prefer_not_to_say}
+
+class _MyAppState extends State<MyApp> {
+  bool firstbox =false;
+  bool secondbox=false;
+  Gender gender=Gender.Male;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar:AppBar(
+          title:Text("CheckBox &Radio Button"),
+        ),
+        body: Container(
+          padding: EdgeInsets.only(top: 20,left: 20),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Text("Hobby:"),
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Painting"),
+                  Checkbox(
+                    checkColor: Colors.red,
+                    activeColor: Colors.greenAccent,
+                    value: this.firstbox,
+                    onChanged:(bool value){
+                      setState((){
+                        this.firstbox=value;
+                      }
+
+                      );
+                    }
+
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Dancing"),
+                  Checkbox(
+                      value: this.secondbox,
+                      onChanged:(bool value){
+                        setState((){
+                          this.secondbox=value;
+                        }
+
+                        );
+                      }
+
+                  ),
+                ],
+              ),
+              CheckboxListTile(
+                  title: Text("Hey whatsup ??"),
+                  subtitle: Text("Fine!!"),
+                  secondary: Icon(Icons.call),
+                  value: this.firstbox,
+                  onChanged: (bool value){
+                    setState(() {
+                      this.firstbox=value;
+                    });
+                  }
+              ),
+              ListTile(
+                leading: Radio(
+                  value: Gender.Male,
+                  groupValue: gender,
+                  onChanged: (Gender value){
+                    setState(() {
+                      this.gender=value;
+                    });
+                  },
+                ),
+                title: Text("Male"),
+              ),
+              ListTile(
+                leading: Radio(
+                  value: Gender.Female,
+                  groupValue: gender,
+                  onChanged: (Gender value){
+                    setState(() {
+                      this.gender=value;
+                    });
+                  },
+                ),
+                title: Text("Female"),
+              ),
+              ListTile(
+                leading: Radio(
+                  value: Gender.Prefer_not_to_say,
+                  groupValue: gender,
+                  onChanged: (Gender value){
+                    setState(() {
+                      this.gender=value;
+                    });
+                  },
+                ),
+                title: Text("Preferred Not to Say"),
+              )
+            ],
+          ),
+        ),
+
+      ),
+    );
+  }
+}
+

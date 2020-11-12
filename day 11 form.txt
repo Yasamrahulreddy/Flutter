@@ -1,0 +1,97 @@
+import 'package:flutter/material.dart';
+void main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'App 10',
+      home:Scaffold(
+          appBar: AppBar(
+            title: Text("Forms"),
+          ),
+          body:Forms(
+
+
+          )
+
+      ),
+    );
+
+  }
+}
+class Forms extends StatefulWidget {
+  @override
+  _FormsState createState() => _FormsState();
+}
+
+class _FormsState extends State<Forms> {
+  final keys =  GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key:keys,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          TextFormField(
+            decoration: InputDecoration(
+              hintText: "Enter your name",
+              labelText: "Name",
+              icon: Icon(Icons.person),
+            ),
+            validator: (value){
+              if(value.isEmpty){
+                return "Please fill the details";
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            decoration: InputDecoration(
+              hintText: "Enter your Password",
+              labelText: "Password",
+              icon: Icon(Icons.lock),
+            ),
+            validator: (value){
+              if(value.isEmpty){
+                return "Please fill the details";
+              }
+              return null;
+            },
+
+          ),
+          TextFormField(
+            decoration: InputDecoration(
+              hintText: "Github link ",
+              labelText: "Github link",
+              icon: Icon(Icons.link),
+            ),
+            validator: (value){
+              if(value.isEmpty){
+                return "Please fill the details";
+              }
+              return null;
+            },
+
+          ),
+          Container(
+            child: RaisedButton(
+              child: Text("Submit"),
+              onPressed: () {
+                if (keys.currentState.validate()){
+                  Scaffold.of(context).showSnackBar(SnackBar(content: Text("Validation Going on"),));
+                }
+            }
+            ),
+          )
+        ],
+      ),
+
+
+    );
+  }
+}
+
+

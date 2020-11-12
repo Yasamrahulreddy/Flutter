@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Calender_widget(),
+    );
+  }
+}
+
+class Calender_widget extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<Calender_widget> {
+  CalendarController _controller;
+  void initState(){
+    super.initState();
+        _controller=CalendarController();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar:AppBar(
+        title: Text("Calender"),
+      ),
+      body: Column(
+        children: [
+          TableCalendar(
+            initialCalendarFormat: CalendarFormat.month,
+            calendarController: _controller,
+            calendarStyle: CalendarStyle(
+              todayStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+              todayColor: Colors.blueAccent,
+              selectedColor: Colors.green,
+            ),
+            headerStyle: HeaderStyle(
+              centerHeaderTitle: true,
+              formatButtonDecoration: BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadiusDirectional.circular(8.0),
+              ),
+              formatButtonShowsNext: false,
+            ),
+
+          )
+        ],
+      ),
+    );
+  }
+}

@@ -1,0 +1,158 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        //home: switch_widget(),
+        home: table_widget(),
+    );
+  }
+}
+class switch_widget extends StatefulWidget {
+  @override
+  _switch_widgetState createState() => _switch_widgetState();
+}
+
+class _switch_widgetState extends State<switch_widget> {
+  bool switch_state=false;
+  var textValue="Switch is OFF";
+  void display_state(bool value){
+    if(switch_state==false){
+      setState(() {
+        switch_state=true;
+        textValue="Switch is ON";
+      });
+
+    }
+    else{
+      setState(() {
+        switch_state=false;
+        textValue="Switch is OFF";
+      });
+
+    }
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Switch"),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+              alignment: Alignment.center,
+              child: Transform.scale(
+                scale: 2,
+                child: Switch(
+                  onChanged: display_state,
+                  value: switch_state,
+                  activeColor: Colors.green,
+                  inactiveThumbColor: Colors.orange,
+                  activeTrackColor: Colors.yellow,
+                  inactiveTrackColor: Colors.blue,
+                ),
+
+              )
+          ),
+          Text("$textValue")
+        ],
+      ),
+    );
+  }
+}
+
+class table_widget extends StatefulWidget {
+  @override
+  _table_widgetState createState() => _table_widgetState();
+}
+
+class _table_widgetState extends State<table_widget> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Table"),
+      ),
+      body: Container(
+        margin: EdgeInsets.all(20),
+        child: Table(
+          defaultColumnWidth: FixedColumnWidth(100),
+          border: TableBorder.all(
+            color: Colors.blueAccent,
+            width: 4,
+            style: BorderStyle.solid,
+          ),
+          children: [
+            TableRow(
+              children: [
+                Column(
+                  children: [
+                    Text("Name")
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text("Name")
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text("Name")
+                  ],
+                ),
+              ],
+            ),
+            TableRow(
+              children: [
+                Column(
+                  children: [
+                    Text("Name")
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text("Name")
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text("Name")
+                  ],
+                ),
+              ],
+            ),
+            TableRow(
+              children: [
+                Column(
+                  children: [
+                    Text("Name")
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text("Name")
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text("Name")
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
